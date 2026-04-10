@@ -21,7 +21,7 @@ console.log("Hello World");
   //CREATE variable rounds and set its initial value to 0
   //CREATE variable humanScore and set its initial value to 0
   //CREATE variable computerScore and set its initial value to 0
-  //CREATE FUNCTION playRound and give it the parameters humanChoice which equals to getHumanChoice and computerChoice which is equal to getComputerChoice
+  //CREATE FUNCTION playRound and give it the parameters humanChoice and computerChoice
     //CREATE FUNCTION caseInsensitive
         //CREATE variable toRightCase which turns the humanSelection to lowercase
         //RETURN toRightCase
@@ -48,7 +48,7 @@ console.log("Hello World");
   //END FUNCTION
   //INCREMENT rounds
   //IF rounds is less than 5:
-  //CALL playRound
+  //CALL playRound with parameters replaced with humanSelection and computerSelection
   //ELSE IF rounds is equal to 5:
     //IF humanScore is less than computerScore:
     //PRINT "Computer wins!"
