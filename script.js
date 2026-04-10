@@ -15,11 +15,13 @@ console.log("Hello World");
     //RETURN the result
 //END FUNCTION
 //TEST the function through console.log
-//CREATE variable humanScore and set its initial value to 0
-//CREATE variable computerScore and set its initial value to 0
 //CREATE variable humanSelection and set its value to getHumanChoice
 //CREATE variable computerSelection and set its value to getComputerChoice
-//CREATE FUNCTION playRound and give it the parameters humanChoice which equals to getHumanChoice and computerChoice which is equal to getComputerChoice
+//CREATE FUNCTION playGame
+  //CREATE variable rounds and set its initial value to 0
+  //CREATE variable humanScore and set its initial value to 0
+  //CREATE variable computerScore and set its initial value to 0
+  //CREATE FUNCTION playRound and give it the parameters humanChoice which equals to getHumanChoice and computerChoice which is equal to getComputerChoice
     //CREATE FUNCTION caseInsensitive
         //CREATE variable toRightCase which turns the humanSelection to lowercase
         //RETURN toRightCase
@@ -43,7 +45,15 @@ console.log("Hello World");
         //PRINT "you win! scissors beats paper"
         //(2)
     //END IF
+  //END FUNCTION
+  //INCREMENT rounds
+  //IF rounds is less than 5:
+  //CALL playRound
+  //ELSE IF rounds is equal to 5:
+    //IF humanScore is less than computerScore:
+    //PRINT "Computer wins!"
+    //ELSE print "you win!"
+  //END IF
 //END FUNCTION
-//CREATE FUNCTION playGame
 
 
