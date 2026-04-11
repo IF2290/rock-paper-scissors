@@ -9,7 +9,7 @@ console.log("Hello World");
     //RETURN scissors
     //END IF
 //END FUNCTION
-function getcomputerChoice(){
+function getComputerChoice(){
   let random = Math.random()-0.1;
   if (random < 0.3){
     return "scissors";
@@ -19,21 +19,27 @@ function getcomputerChoice(){
     return "paper";
   }
 }
-//TEST the function through console.log
-console.log(getcomputerChoice());
 //CREATE FUNCTION gethumanChoiceRightCase
     //CREATE the variable userInput and give it a value of a prompt asking it to write one of the three options
     //RETURN the result
 //END FUNCTION
-function gethumanChoiceRightCase(){
+function getHumanChoice(){
   let userInput = prompt("enter your choice");
   return userInput;
 }
 //TEST the function through console.log
 //CREATE variable humanSelection and set its value to gethumanChoiceRightCase
-const humanSelection = gethumanChoiceRightCase();
+const humanSelection1 = getHumanChoice();
+const humanSelection2 = getHumanChoice();
+const humanSelection3 = getHumanChoice();
+const humanSelection4 = getHumanChoice();
+const humanSelection5 = getHumanChoice();
 //CREATE variable computerSelection and set its value to getcomputerChoice
-const computerSelection = getcomputerChoice();
+const computerSelection1 = getComputerChoice();
+const computerSelection2 = getComputerChoice();
+const computerSelection3 = getComputerChoice();
+const computerSelection4 = getComputerChoice();
+const computerSelection5 = getComputerChoice();
 //CREATE FUNCTION playGame
   //CREATE variable rounds and set its initial value to 0
   //CREATE variable humanScore and set its initial value to 0
@@ -75,14 +81,16 @@ const computerSelection = getcomputerChoice();
   //END IF
 //END FUNCTION
 function playGame(){
-  let rounds = 0;
   let humanScore = 0;
   let computerScore = 0;
+  let rounds = 0; 
   function playRound(humanChoice, computerChoice){
     function caseInsensitive(){
       let toRightCase = humanChoice.toLowerCase();
       return toRightCase;
     }
+    console.log(humanChoice);
+    console.log(computerChoice);
     let humanChoiceRightCase = caseInsensitive();
   if (humanChoiceRightCase === "rock" && computerChoice === "paper"){
     console.log("you lose! paper beats rock!");
@@ -108,10 +116,25 @@ function playGame(){
     console.log("you win! scissors beats paper!");
     humanScore++;
     rounds++;
-  } else{
+  } else if (humanChoiceRightCase === computerChoice){
     console.log("it's a draw!");
+    rounds++;
   }
   }
-  playRound(humanSelection, computerSelection);
+  getComputerChoice();
+  getHumanChoice();
+  playRound(humanSelection1, computerSelection1);
+  getComputerChoice();
+  getHumanChoice();
+  playRound(humanSelection2, computerSelection2);
+  getComputerChoice();
+  getHumanChoice();
+  playRound(humanSelection3, computerSelection3);
+  getComputerChoice();
+  getHumanChoice();
+  playRound(humanSelection4, computerSelection4);
+  getComputerChoice();
+  getHumanChoice();
+  playRound(humanSelection5, computerSelection5);
 }
-
+playGame(humanSelection1, computerSelection1);
