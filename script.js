@@ -1,3 +1,4 @@
+console.log("Hello World");
 //CREATE FUNCTION getcomputerChoice which returns one of the three options(Rock,..)
     //CREATE variable random which generates decimal numbers from 0 to 1 and subtract it by 0.1 to make it fully fair
     //IF the no. is less than 0.3:
@@ -28,9 +29,17 @@ function getHumanChoice(){
 }
 //TEST the function through console.log
 //CREATE variable humanSelection and set its value to gethumanChoiceRightCase
-const humanSelection = getHumanChoice;
+const humanSelection1 = getHumanChoice();
+const humanSelection2 = getHumanChoice();
+const humanSelection3 = getHumanChoice();
+const humanSelection4 = getHumanChoice();
+const humanSelection5 = getHumanChoice();
 //CREATE variable computerSelection and set its value to getcomputerChoice
-const computerSelection = getComputerChoice;
+const computerSelection1 = getComputerChoice();
+const computerSelection2 = getComputerChoice();
+const computerSelection3 = getComputerChoice();
+const computerSelection4 = getComputerChoice();
+const computerSelection5 = getComputerChoice();
 //CREATE FUNCTION playGame
   //CREATE variable rounds and set its initial value to 0
   //CREATE variable humanScore and set its initial value to 0
@@ -80,6 +89,8 @@ function playGame(){
       let toRightCase = humanChoice.toLowerCase();
       return toRightCase;
     }
+    console.log(humanChoice);
+    console.log(computerChoice);
     let humanChoiceRightCase = caseInsensitive();
   if (humanChoiceRightCase === "rock" && computerChoice === "paper"){
     console.log("you lose! paper beats rock!");
@@ -110,6 +121,10 @@ function playGame(){
     rounds++;
   }
   }
-  playRound(humanSelection, computerSelection);
+  playRound(humanSelection1, computerSelection1);
+  playRound(humanSelection2, computerSelection2);
+  playRound(humanSelection3, computerSelection3);
+  playRound(humanSelection4, computerSelection4);
+  playRound(humanSelection5, computerSelection5);
 }
-playGame(humanSelection, computerSelection);
+playGame(humanSelection1, computerSelection1);
