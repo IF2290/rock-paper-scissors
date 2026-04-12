@@ -24,7 +24,7 @@ function getComputerChoice(){
     //RETURN the result
 //END FUNCTION
 function getHumanChoice(){
-  let userInput = prompt("enter your choice");
+  let userInput = prompt("enter your choice (rock, paper or scissors):");
   return userInput;
 }
 //TEST the function through console.log
