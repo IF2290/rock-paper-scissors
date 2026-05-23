@@ -3,6 +3,8 @@ console.log("Hello World");
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+const roundResult = document.querySelector("#round-result");
+const result = document.querySelector("#result");
 //CREATE FUNCTION gethumanChoice
     //CREATE the variable userInput and give it a value of a prompt asking it to write one of the three options
     //RETURN the result
@@ -24,36 +26,39 @@ function playGame(){
   let rounds = 0; 
   function playRound(humanChoice, computerChoice){
     if (humanChoice === "rock" && computerChoice === "paper"){
-    console.log("you lose! paper beats rock!");
+    roundResult.textContent = "You lose! Paper beats rock!";
     computerScore++;
+    rounds++;
   } else if (humanChoice === "paper" && computerChoice === "rock"){
-    console.log("you win! Paper beats rock!");
+    roundResult.textContent = "you win! Paper beats rock!";
     humanScore++;
+    rounds++;
   } else if (humanChoice === "scissors" && computerChoice === "rock"){
-    console.log("you lose! rock beats scissors!");
+    roundResult.textContent = "you lose! Rock beats scissors!";
     computerScore++;
+    rounds++;
   } else if (humanChoice === "rock" && computerChoice === "scissors"){
-    console.log("you win! rock beats scissors!");
+    roundResult.textContent = "you win! Rock beats scissors!";
     humanScore++;
+    rounds++;
   } else if (humanChoice === "paper" && computerChoice === "scissors"){
-    console.log("you lose! scissors beats paper!");
+    roundResult.textContent = "you lose! Scissors beats paper!";
     computerScore++;
+    rounds++;
   } else if (humanChoice === "scissors" && computerChoice === "paper"){
-    console.log("you win! scissors beats paper!");
+    roundResult.textContent = "you win! Scissors beats paper!";
     humanScore++;
+    rounds++;
   } else if (humanChoice === computerChoice){
-    console.log("it's a draw!");
-  }else {
-    console.log("wuz")
+    roundResult.textContent = "It's a draw!";
   }
-  }
-  if (humanScore > computerScore){
-    console.log("you win!!!")
-  } else {
-    console.log("you lose :(")
+  if (humanScore > computerScore && rounds === 5){
+    result.textContent = "you win!!!";
+  } else if (humanScore < computerScore && rounds === 5){
+    result.textContent = "you lose :(";
   };
-  
-  rock.addEventListener("click", (e) => {
+}
+ rock.addEventListener("click", (e) => {
     function getHumanChoice () {
       return "rock";
     }

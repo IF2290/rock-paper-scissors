@@ -74,8 +74,10 @@ body{
     gap: 20px;
 }
 #round-result{
-    padding: 20px;
+    color: white;
+    font-size: 20px;
 }
 #result{
-    padding: 20px;
+    color: white;
+    font-size: 20px;
 }
