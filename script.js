@@ -25,6 +25,7 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
   computerScoreDisplay.textContent = "Computer score is: " + computerScore;
   humanScoreDisplay.textContent = "Your score is: " + humanScore;
   roundNo.textContent = "Round: " + rounds;
+  computerChoiceDisplayed.textContent =
   roundResult.textContent = "";
   result.textContent = "";
   rock.disabled = false;
@@ -38,6 +39,7 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
     computerScoreDisplay.textContent = "Computer score is: " + computerScore;
     humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
+    computerChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
   } else if (humanChoice === "paper" && computerChoice === "rock"){
     roundResult.textContent = "you win! Paper beats rock!";
     humanScore++;
@@ -45,6 +47,7 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
     computerScoreDisplay.textContent = "Computer score is: " + computerScore;
     humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
+    computerChoiceDisplayed.textContent =  String.fromCodePoint(0x1FAA8);
   } else if (humanChoice === "scissors" && computerChoice === "rock"){
     roundResult.textContent = "you lose! Rock beats scissors!";
     computerScore++;
@@ -52,6 +55,7 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
     computerScoreDisplay.textContent = "Computer score is: " + computerScore;
     humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
+    computerChoiceDisplayed.textContent =  String.fromCodePoint(0x1FAA8);
   } else if (humanChoice === "rock" && computerChoice === "scissors"){
     roundResult.textContent = "you win! Rock beats scissors!";
     humanScore++;
@@ -59,6 +63,7 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
     computerScoreDisplay.textContent = "Computer score is: " + computerScore;
     humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
+    computerChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
   } else if (humanChoice === "paper" && computerChoice === "scissors"){
     roundResult.textContent = "you lose! Scissors beats paper!";
     computerScore++;
@@ -66,6 +71,7 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
     computerScoreDisplay.textContent = "Computer score is: " + computerScore;
     humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
+    computerChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
   } else if (humanChoice === "scissors" && computerChoice === "paper"){
     roundResult.textContent = "you win! Scissors beats paper!";
     humanScore++;
@@ -73,12 +79,14 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
     computerScoreDisplay.textContent = "Computer score is: " + computerScore;
     humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
+    computerChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
   } else if (humanChoice === computerChoice){
     roundResult.textContent = "It's a draw!";
     rounds++;
     computerScoreDisplay.textContent = "Computer score is: " + computerScore;
     humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
+    computerChoiceDisplayed.textContent = humanChoiceDisplayed.textContent
   }
   if (humanScore > computerScore && rounds === 5){
     result.textContent = "you win!!!";
@@ -121,13 +129,6 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
       };
 };
     humanChoiceDisplayed.textContent = String.fromCodePoint(0x1FAA8);
-    if (getComputerChoice() === "rock"){
-      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1FAA8);
-    } else if (getComputerChoice() === "paper"){
-      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
-    } else{
-      computerChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
-    };
     playRound(getHumanChoice(), getComputerChoice());
 });
 
@@ -146,13 +147,6 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
       };
 };
     humanChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
-    if (getComputerChoice() === "rock"){
-      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1FAA8);
-    } else if (getComputerChoice() === "paper"){
-      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
-    } else{
-      computerChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
-    };
     playRound(getHumanChoice(), getComputerChoice());
 });
 
@@ -172,13 +166,6 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
 };
 
     humanChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
-    if (getComputerChoice() === "rock"){
-      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1FAA8);
-    } else if (getComputerChoice() === "paper"){
-      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
-    } else{
-      computerChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
-    };
     playRound(getHumanChoice(), getComputerChoice());
 });
 };
