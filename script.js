@@ -9,6 +9,8 @@ const roundNo = document.querySelector("#round-no");
 const humanScoreDisplay = document.querySelector("#human-score");
 const computerScoreDisplay = document.querySelector("#computer-score");
 const playOrReset = document.querySelector("#play-or-reset");
+const humanChoiceDisplayed = document.querySelector("#human-choice-displayed");
+const computerChoiceDisplayed = document.querySelector("#computer-choice-displayed");
 
 //CREATE FUNCTION gethumanChoice
     //CREATE the variable userInput and give it a value of a prompt asking it to write one of the three options
@@ -17,16 +19,6 @@ const playOrReset = document.querySelector("#play-or-reset");
 //TEST the function through console.log
 
   function playGame(){
-  function getComputerChoice(){
-  let random = Math.random()-0.1;
-  if (random < 0.3){
-    return "scissors";
-  } else if (random > 0.3 && random < 0.6){
-    return "rock";
-  } else {
-    return "paper";
-  }
-}
   let humanScore = 0;
   let computerScore = 0;
   let rounds = 0; 
@@ -117,21 +109,76 @@ const playOrReset = document.querySelector("#play-or-reset");
  rock.addEventListener("click", (e) => {
     function getHumanChoice () {
       return "rock";
-    }
+    };
+    function getComputerChoice(){
+      let random = Math.random()-0.1;
+      if (random < 0.3){
+        return "scissors";
+      } else if (random > 0.3 && random < 0.6){
+        return "rock";
+      } else {
+        return "paper";
+      };
+};
+    humanChoiceDisplayed.textContent = "rock";
+    if (getComputerChoice() === "rock"){
+      computerChoiceDisplayed.textContent = "rock"
+    } else if (getComputerChoice() === "paper"){
+      computerChoiceDisplayed.textContent = "paper"
+    } else{
+      computerChoiceDisplayed.textContent = "scissors"
+    };
     playRound(getHumanChoice(), getComputerChoice());
 });
 
   paper.addEventListener("click", (e) => {
     function getHumanChoice () {
       return "paper";
-    }
+    };
+  function getComputerChoice(){
+      let random = Math.random()-0.1;
+      if (random < 0.3){
+        return "scissors";
+      } else if (random > 0.3 && random < 0.6){
+        return "rock";
+      } else {
+        return "paper";
+      };
+};
+    humanChoiceDisplayed.textContent = "paper";
+    if (getComputerChoice() === "rock"){
+      computerChoiceDisplayed.textContent = "rock"
+    } else if (getComputerChoice() === "paper"){
+      computerChoiceDisplayed.textContent = "paper"
+    } else{
+      computerChoiceDisplayed.textContent = "scissors"
+    };
     playRound(getHumanChoice(), getComputerChoice());
 });
 
   scissors.addEventListener("click", (e) => {
     function getHumanChoice () {
       return "scissors";
-    }
+    };
+    function getComputerChoice(){
+      let random = Math.random()-0.1;
+      if (random < 0.3){
+        return "scissors";
+      } else if (random > 0.3 && random < 0.6){
+        return "rock";
+      } else {
+        return "paper";
+      };
+};
+
+    humanChoiceDisplayed.textContent = "scissors";
+    if (getComputerChoice() === "rock"){
+      computerChoiceDisplayed.textContent = "rock"
+    } else if (getComputerChoice() === "paper"){
+      computerChoiceDisplayed.textContent = "paper"
+    } else{
+      computerChoiceDisplayed.textContent = "scissors"
+    };
     playRound(getHumanChoice(), getComputerChoice());
 });
 };

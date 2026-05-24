@@ -15,16 +15,18 @@
         <div id="choices">
             <div id="you-chose">
                 <p>You chose:</p>
+                <p id="human-choice-displayed"></p>
             </div>
             <div id="computer-chose">
                 <p>computer chose:</p>
+                <p id="computer-choice-displayed"></p>
             </div>
         </div>
         <div id="computer-score">computer's score is:</div>
         </div>
         <div id="round-no">Round: </div>
         <p id="round-result"></p>
-        <div id="buttons">
+        <div id="choice-buttons">
             <button id="rock">Rock</button>
             <button id="paper">Paper</button>
             <button id="scissors">Scissors</button>
@@ -33,7 +35,17 @@
         <div id="play-reset">
             <button id="play-or-reset">play / reset</button>
         </div>
-        
+        <div id="rules">
+            <ol>
+                <li>Rock beats scissors</li>
+                <li>Scissors beats paper</li>
+                <li>Paper beats rock</li>
+                <li>There are 5 rounds</li>
+                <li>The one with the most points at the end wins. If both have the same
+                    no. of points, it's a draw.
+                </li>
+            </ol>
+        </div>
     </div>
 </body>
 </html>

@@ -21,7 +21,7 @@ body{
 #title{
     color: white;
     padding: 25px;
-    font-size: 25px;
+    font-size: 30px;
 }
 #you-chose{
     display: flex;
@@ -46,29 +46,32 @@ body{
     background-color: rgb(123, 167, 167);
     border: none;
     border-radius: 10px;
-    width: 70px;
+    width: 90px;
     height: 30px;
     cursor: pointer;
+    font-size: 16px;
 }
 #paper{
     color: white;
     background-color: rgb(123, 167, 167);
     border: none;
     border-radius: 10px;
-    width: 70px;
+    width: 90px;
     height: 30px;
     cursor: pointer;
+    font-size: 16px;
 }
 #scissors{
     color: white;
     background-color: rgb(123, 167, 167);
     border: none;
     border-radius: 10px;
-    width: 70px;
+    width: 90px;
     height: 30px;
     cursor: pointer;
+    font-size: 16px;
 }
-#buttons{
+#choice-buttons{
     padding: 20px;
     display: flex;
     gap: 20px;
@@ -90,23 +93,27 @@ body{
 #computer-score{
     padding: 10px;
     font-size: 20px;
-    flex-shrink: 1;
 }
 #human-score{
     padding: 10px;
     font-size: 20px;
-    flex-shrink: 1;
 }
 #round-no{
     color: white;
     margin-top: 5px;
+    font-size: 20px;
 }
 #play-or-reset{
     color: white;
     background-color: rgb(123, 167, 167);
     border: none;
     border-radius: 10px;
-    width: 130px;
+    width: 150px;
     height: 30px;
     cursor: pointer;
+    font-size: 16px;
+}
+#rules{
+    color: white;
+    font-size: 20px;
 }
