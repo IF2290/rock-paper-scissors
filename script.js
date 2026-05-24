@@ -182,4 +182,8 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
     playRound(getHumanChoice(), getComputerChoice());
 });
 };
-playOrReset.addEventListener("click", playGame);
+playOrReset.addEventListener("click", (e) => {
+  playGame();
+  humanChoiceDisplayed.textContent = "";
+  computerChoiceDisplayed.textContent = "";
+});
