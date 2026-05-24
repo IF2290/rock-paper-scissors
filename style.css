@@ -81,6 +81,7 @@ body{
 #result{
     color: white;
     font-size: 20px;
+    height: 30px;
 }
 #one-v-one{
     display: flex;
@@ -99,4 +100,13 @@ body{
 #round-no{
     color: white;
     margin-top: 5px;
+}
+#play-or-reset{
+    color: white;
+    background-color: rgb(123, 167, 167);
+    border: none;
+    border-radius: 10px;
+    width: 130px;
+    height: 30px;
+    cursor: pointer;
 }

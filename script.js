@@ -8,13 +8,15 @@ const result = document.querySelector("#result");
 const roundNo = document.querySelector("#round-no");
 const humanScoreDisplay = document.querySelector("#human-score");
 const computerScoreDisplay = document.querySelector("#computer-score");
+const playOrReset = document.querySelector("#play-or-reset");
 
 //CREATE FUNCTION gethumanChoice
     //CREATE the variable userInput and give it a value of a prompt asking it to write one of the three options
     //RETURN the result
 //END FUNCTION
 //TEST the function through console.log
-function playGame(){
+
+  function playGame(){
   function getComputerChoice(){
   let random = Math.random()-0.1;
   if (random < 0.3){
@@ -28,19 +30,27 @@ function playGame(){
   let humanScore = 0;
   let computerScore = 0;
   let rounds = 0; 
-  computerScoreDisplay.textContent = "Computer score is: 0";
-  humanScoreDisplay.textContent = "Your score is: 0";
+  computerScoreDisplay.textContent = "Computer score is: " + computerScore;
+  humanScoreDisplay.textContent = "Your score is: " + humanScore;
+  roundNo.textContent = "Round: " + rounds;
+  roundResult.textContent = "";
+  result.textContent = "";
+  rock.disabled = false;
+  paper.disabled = false;
+  scissors.disabled = false;
   function playRound(humanChoice, computerChoice){
     if (humanChoice === "rock" && computerChoice === "paper"){
     roundResult.textContent = "You lose! Paper beats rock!";
     computerScore++;
     rounds++;
     computerScoreDisplay.textContent = "Computer score is: " + computerScore;
+    humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
   } else if (humanChoice === "paper" && computerChoice === "rock"){
     roundResult.textContent = "you win! Paper beats rock!";
     humanScore++;
     rounds++;
+    computerScoreDisplay.textContent = "Computer score is: " + computerScore;
     humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
   } else if (humanChoice === "scissors" && computerChoice === "rock"){
@@ -48,11 +58,13 @@ function playGame(){
     computerScore++;
     rounds++;
     computerScoreDisplay.textContent = "Computer score is: " + computerScore;
+    humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
   } else if (humanChoice === "rock" && computerChoice === "scissors"){
     roundResult.textContent = "you win! Rock beats scissors!";
     humanScore++;
     rounds++;
+    computerScoreDisplay.textContent = "Computer score is: " + computerScore;
     humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
   } else if (humanChoice === "paper" && computerChoice === "scissors"){
@@ -60,24 +72,46 @@ function playGame(){
     computerScore++;
     rounds++;
     computerScoreDisplay.textContent = "Computer score is: " + computerScore;
+    humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
   } else if (humanChoice === "scissors" && computerChoice === "paper"){
     roundResult.textContent = "you win! Scissors beats paper!";
     humanScore++;
     rounds++;
+    computerScoreDisplay.textContent = "Computer score is: " + computerScore;
     humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
   } else if (humanChoice === computerChoice){
     roundResult.textContent = "It's a draw!";
     rounds++;
+    computerScoreDisplay.textContent = "Computer score is: " + computerScore;
+    humanScoreDisplay.textContent = "Your score is: " + humanScore;
     roundNo.textContent = "Round: " + rounds;
   }
   if (humanScore > computerScore && rounds === 5){
     result.textContent = "you win!!!";
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+    humanScore = 0;
+    computerScore = 0;
+    rounds = 0; 
   } else if (humanScore < computerScore && rounds === 5){
     result.textContent = "you lose :(";
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+    humanScore = 0;
+    computerScore = 0;
+    rounds = 0; 
   } else if (humanScore === computerScore && rounds === 5){
     result.textContent = "It's a draw!";
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+    humanScore = 0;
+    computerScore = 0;
+    rounds = 0; 
   }
 }
  rock.addEventListener("click", (e) => {
@@ -100,5 +134,5 @@ function playGame(){
     }
     playRound(getHumanChoice(), getComputerChoice());
 });
-}
-playGame();
+};
+playOrReset.addEventListener("click", playGame);
