@@ -120,13 +120,13 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
         return "paper";
       };
 };
-    humanChoiceDisplayed.textContent = "rock";
+    humanChoiceDisplayed.textContent = String.fromCodePoint(0x1FAA8);
     if (getComputerChoice() === "rock"){
-      computerChoiceDisplayed.textContent = "rock"
+      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1FAA8);
     } else if (getComputerChoice() === "paper"){
-      computerChoiceDisplayed.textContent = "paper"
+      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
     } else{
-      computerChoiceDisplayed.textContent = "scissors"
+      computerChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
     };
     playRound(getHumanChoice(), getComputerChoice());
 });
@@ -145,13 +145,13 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
         return "paper";
       };
 };
-    humanChoiceDisplayed.textContent = "paper";
+    humanChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
     if (getComputerChoice() === "rock"){
-      computerChoiceDisplayed.textContent = "rock"
+      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1FAA8);
     } else if (getComputerChoice() === "paper"){
-      computerChoiceDisplayed.textContent = "paper"
+      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
     } else{
-      computerChoiceDisplayed.textContent = "scissors"
+      computerChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
     };
     playRound(getHumanChoice(), getComputerChoice());
 });
@@ -171,13 +171,13 @@ const computerChoiceDisplayed = document.querySelector("#computer-choice-display
       };
 };
 
-    humanChoiceDisplayed.textContent = "scissors";
+    humanChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
     if (getComputerChoice() === "rock"){
-      computerChoiceDisplayed.textContent = "rock"
+      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1FAA8);
     } else if (getComputerChoice() === "paper"){
-      computerChoiceDisplayed.textContent = "paper"
+      computerChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
     } else{
-      computerChoiceDisplayed.textContent = "scissors"
+      computerChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
     };
     playRound(getHumanChoice(), getComputerChoice());
 });

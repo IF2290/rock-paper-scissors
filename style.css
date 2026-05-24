@@ -117,3 +117,11 @@ body{
     color: white;
     font-size: 20px;
 }
+#human-choice-displayed{
+    font-size: 60px;
+    height: 60px; 
+}
+#computer-choice-displayed{
+    font-size: 60px;
+    height: 60px;
+}
