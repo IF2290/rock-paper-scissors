@@ -89,10 +89,12 @@ body{
 #computer-score{
     padding: 10px;
     font-size: 20px;
+    flex-shrink: 1;
 }
 #human-score{
     padding: 10px;
     font-size: 20px;
+    flex-shrink: 1;
 }
 #round-no{
     color: white;
