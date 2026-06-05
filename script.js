@@ -1,176 +1,122 @@
 console.log("Hello World");
-
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
-const roundResult = document.querySelector("#round-result");
-const result = document.querySelector("#result");
-const roundNo = document.querySelector("#round-no");
-const humanScoreDisplay = document.querySelector("#human-score");
-const computerScoreDisplay = document.querySelector("#computer-score");
-const playOrReset = document.querySelector("#play-or-reset");
-const humanChoiceDisplayed = document.querySelector("#human-choice-displayed");
-const computerChoiceDisplayed = document.querySelector("#computer-choice-displayed");
-
-//CREATE FUNCTION gethumanChoice
+//CREATE FUNCTION getcomputerChoice which returns one of the three options(Rock,..)
+    //CREATE variable random which generates decimal numbers from 0 to 1 and subtract it by 0.1 to make it fully fair
+    //IF the no. is less than 0.3:
+    //RETURN Rock
+    //ELSE IF the no. is more than 0.3 but less than 0.6:
+    //RETURN paper
+    //ELSE:
+    //RETURN scissors
+    //END IF
+//END FUNCTION
+function getComputerChoice(){
+  let random = Math.random()-0.1;
+  if (random < 0.3){
+    return "scissors";
+  } else if (random > 0.3 && random < 0.6){
+    return "rock";
+  } else {
+    return "paper";
+  }
+}
+//CREATE FUNCTION gethumanChoiceRightCase
     //CREATE the variable userInput and give it a value of a prompt asking it to write one of the three options
     //RETURN the result
 //END FUNCTION
+function getHumanChoice(){
+  let userInput = prompt("enter your choice (rock, paper or scissors):");
+  return userInput;
+}
 //TEST the function through console.log
-
-  function playGame(){
+//CREATE variable humanSelection and set its value to gethumanChoiceRightCase
+const humanSelection = getHumanChoice;
+//CREATE variable computerSelection and set its value to getcomputerChoice
+const computerSelection = getComputerChoice;
+//CREATE FUNCTION playGame
+  //CREATE variable rounds and set its initial value to 0
+  //CREATE variable humanScore and set its initial value to 0
+  //CREATE variable computerScore and set its initial value to 0
+  //CREATE FUNCTION playRound and give it the parameters humanChoice and computerChoice
+    //CREATE FUNCTION caseInsensitive
+        //CREATE variable humanChoiceRightCase which turns the humanChoice to lowercase
+        //RETURN humanChoiceRightCase
+    //END FUNCTION
+        //IF humanChoiceRightCase is equal to rock and computerChoice is equal to paper:
+        //PRINT "you lose! paper beats rock!"
+        //Increment computerScore(1)
+        //INCREMENT rounds(e)
+        //ELSE IF humanChoiceRightCase is equal to paper and computerChoice is equal to rock:
+        //PRINT "you win! paper beats rock!"
+        //increment humanScore(2)
+        //(e)
+        //ELSE IF humanChoiceRightCase is equal to Scissors and computerChoice is equal to Rock:
+        //PRINT "you lose! rock beats scissors!"
+        //(1)(e)
+        //ELSE IF its vice versa of the prevoius case:
+        //PRINT "you win! rock beats scissors!"
+        //(2)(e)
+        //ELSE IF humanChoiceRightCase is equal to paper and computerChoice is equal to scissors:
+        //PRINT "you lose! scissors beats paper!"
+        //(1)(e)
+        //ELSE IF vice versa:
+        //PRINT "you win! scissors beats paper"
+        //(2)(e)
+    //END IF
+  //END FUNCTION
+  //INCREMENT rounds
+  //IF rounds is less than 5:
+  //CALL playRound with parameters replaced with humanChoiceRightCase and computerChoice
+  //ELSE IF rounds is equal to 5:
+    //IF humanScore is less than computerScore:
+    //PRINT "Computer wins!"
+    //ELSE print "you win!"
+  //END IF
+//END FUNCTION
+function playGame(){
   let humanScore = 0;
   let computerScore = 0;
   let rounds = 0; 
-  computerScoreDisplay.textContent = "Computer score is: " + computerScore;
-  humanScoreDisplay.textContent = "Your score is: " + humanScore;
-  roundNo.textContent = "Round: " + rounds;
-  computerChoiceDisplayed.textContent =
-  roundResult.textContent = "";
-  result.textContent = "";
-  rock.disabled = false;
-  paper.disabled = false;
-  scissors.disabled = false;
   function playRound(humanChoice, computerChoice){
-    if (humanChoice === "rock" && computerChoice === "paper"){
-    roundResult.textContent = "You lose! Paper beats rock!";
+    function caseInsensitive(){
+      let toRightCase = humanChoice.toLowerCase();
+      return toRightCase;
+    }
+    console.log(humanChoice);
+    console.log(computerChoice);
+    let humanChoiceRightCase = caseInsensitive();
+  if (humanChoiceRightCase === "rock" && computerChoice === "paper"){
+    console.log("you lose! paper beats rock!");
     computerScore++;
-    rounds++;
-    computerScoreDisplay.textContent = "Computer score is: " + computerScore;
-    humanScoreDisplay.textContent = "Your score is: " + humanScore;
-    roundNo.textContent = "Round: " + rounds;
-    computerChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
-  } else if (humanChoice === "paper" && computerChoice === "rock"){
-    roundResult.textContent = "you win! Paper beats rock!";
+  } else if (humanChoiceRightCase === "paper" && computerChoice === "rock"){
+    console.log("you win! Paper beats rock!");
     humanScore++;
-    rounds++;
-    computerScoreDisplay.textContent = "Computer score is: " + computerScore;
-    humanScoreDisplay.textContent = "Your score is: " + humanScore;
-    roundNo.textContent = "Round: " + rounds;
-    computerChoiceDisplayed.textContent =  String.fromCodePoint(0x1FAA8);
-  } else if (humanChoice === "scissors" && computerChoice === "rock"){
-    roundResult.textContent = "you lose! Rock beats scissors!";
+  } else if (humanChoiceRightCase === "scissors" && computerChoice === "rock"){
+    console.log("you lose! rock beats scissors!");
     computerScore++;
-    rounds++;
-    computerScoreDisplay.textContent = "Computer score is: " + computerScore;
-    humanScoreDisplay.textContent = "Your score is: " + humanScore;
-    roundNo.textContent = "Round: " + rounds;
-    computerChoiceDisplayed.textContent =  String.fromCodePoint(0x1FAA8);
-  } else if (humanChoice === "rock" && computerChoice === "scissors"){
-    roundResult.textContent = "you win! Rock beats scissors!";
+  } else if (humanChoiceRightCase === "rock" && computerChoice === "scissors"){
+    console.log("you win! rock beats scissors!");
     humanScore++;
-    rounds++;
-    computerScoreDisplay.textContent = "Computer score is: " + computerScore;
-    humanScoreDisplay.textContent = "Your score is: " + humanScore;
-    roundNo.textContent = "Round: " + rounds;
-    computerChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
-  } else if (humanChoice === "paper" && computerChoice === "scissors"){
-    roundResult.textContent = "you lose! Scissors beats paper!";
+  } else if (humanChoiceRightCase === "paper" && computerChoice === "scissors"){
+    console.log("you lose! scissors beats paper!");
     computerScore++;
-    rounds++;
-    computerScoreDisplay.textContent = "Computer score is: " + computerScore;
-    humanScoreDisplay.textContent = "Your score is: " + humanScore;
-    roundNo.textContent = "Round: " + rounds;
-    computerChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
-  } else if (humanChoice === "scissors" && computerChoice === "paper"){
-    roundResult.textContent = "you win! Scissors beats paper!";
+  } else if (humanChoiceRightCase === "scissors" && computerChoice === "paper"){
+    console.log("you win! scissors beats paper!");
     humanScore++;
-    rounds++;
-    computerScoreDisplay.textContent = "Computer score is: " + computerScore;
-    humanScoreDisplay.textContent = "Your score is: " + humanScore;
-    roundNo.textContent = "Round: " + rounds;
-    computerChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
-  } else if (humanChoice === computerChoice){
-    roundResult.textContent = "It's a draw!";
-    rounds++;
-    computerScoreDisplay.textContent = "Computer score is: " + computerScore;
-    humanScoreDisplay.textContent = "Your score is: " + humanScore;
-    roundNo.textContent = "Round: " + rounds;
-    computerChoiceDisplayed.textContent = humanChoiceDisplayed.textContent
+  } else if (humanChoiceRightCase === computerChoice){
+    console.log("it's a draw!");
   }
-  if (humanScore > computerScore && rounds === 5){
-    result.textContent = "you win!!!";
-    rock.disabled = true;
-    paper.disabled = true;
-    scissors.disabled = true;
-    humanScore = 0;
-    computerScore = 0;
-    rounds = 0; 
-  } else if (humanScore < computerScore && rounds === 5){
-    result.textContent = "you lose :(";
-    rock.disabled = true;
-    paper.disabled = true;
-    scissors.disabled = true;
-    humanScore = 0;
-    computerScore = 0;
-    rounds = 0; 
-  } else if (humanScore === computerScore && rounds === 5){
-    result.textContent = "It's a draw!";
-    rock.disabled = true;
-    paper.disabled = true;
-    scissors.disabled = true;
-    humanScore = 0;
-    computerScore = 0;
-    rounds = 0; 
   }
-}
- rock.addEventListener("click", (e) => {
-    function getHumanChoice () {
-      return "rock";
-    };
-    function getComputerChoice(){
-      let random = Math.random()-0.1;
-      if (random < 0.3){
-        return "scissors";
-      } else if (random > 0.3 && random < 0.6){
-        return "rock";
-      } else {
-        return "paper";
-      };
+  playRound(humanSelection(), computerSelection());
+  playRound(humanSelection(), computerSelection());
+  playRound(humanSelection(), computerSelection());
+  playRound(humanSelection(), computerSelection());
+  playRound(humanSelection(), computerSelection());
+  if (humanScore > computerScore){
+    console.log("you win!!!")
+  } else if (humanScore === computerScore){
+    console.log("It's a draw!");
+  } else{
+    console.log("you lose:(");
+  };
 };
-    humanChoiceDisplayed.textContent = String.fromCodePoint(0x1FAA8);
-    playRound(getHumanChoice(), getComputerChoice());
-});
-
-  paper.addEventListener("click", (e) => {
-    function getHumanChoice () {
-      return "paper";
-    };
-  function getComputerChoice(){
-      let random = Math.random()-0.1;
-      if (random < 0.3){
-        return "scissors";
-      } else if (random > 0.3 && random < 0.6){
-        return "rock";
-      } else {
-        return "paper";
-      };
-};
-    humanChoiceDisplayed.textContent = String.fromCodePoint(0x1F4C4);
-    playRound(getHumanChoice(), getComputerChoice());
-});
-
-  scissors.addEventListener("click", (e) => {
-    function getHumanChoice () {
-      return "scissors";
-    };
-    function getComputerChoice(){
-      let random = Math.random()-0.1;
-      if (random < 0.3){
-        return "scissors";
-      } else if (random > 0.3 && random < 0.6){
-        return "rock";
-      } else {
-        return "paper";
-      };
-};
-
-    humanChoiceDisplayed.textContent = String.fromCodePoint(0x2702);
-    playRound(getHumanChoice(), getComputerChoice());
-});
-};
-playOrReset.addEventListener("click", (e) => {
-  playGame();
-  humanChoiceDisplayed.textContent = "";
-  computerChoiceDisplayed.textContent = "";
-});
+playGame();
